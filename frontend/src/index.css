@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body, #root {
+  min-height: 100%;
+  width: 100%;
+  background-color: #f0f4f5;
+  color-scheme: light;
+}
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;
