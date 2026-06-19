@@ -1,16 +1,27 @@
-const express = require('express')
-const cors = require('cors')
 const dotenv = require('dotenv')
-const connectDB = require('./config/db')
-
 dotenv.config()
+
+const express = require('express')
+const connectDB = require('./config/db')
+const authRoutes = require('./routes/auth.routes')
+
 connectDB()
 
 const app = express()
-app.use(cors({ origin: 'http://localhost:5173' }))
-app.use(express.json())
 
-// Routes (we'll add more later)
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173')
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end()
+  }
+  next()
+})
+
+app.use(express.json())
+app.use('/api/auth', authRoutes)
+
 app.get('/', (req, res) => {
   res.json({ message: '✅ NHS API is running' })
 })
