@@ -3,6 +3,7 @@ const router = express.Router()
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const User = require('../models/User')
+const { protect } = require('../middleware/auth.middleware')
 
 const generateToken = (id, role) => {
   return jwt.sign({ id, role }, process.env.JWT_SECRET, { expiresIn: '7d' })
@@ -78,5 +79,15 @@ router.post('/login', async (req, res) => {
     res.status(500).json({ message: 'Server error', error: error.message })
   }
 })
+
+// GET all GPs — accessible by patients
+    router.get('/doctors', protect, async (req, res) => {
+      try {
+        const doctors = await User.find({ role: 'gp' }).select('-password')
+        res.json(doctors)
+      } catch (error) {
+        res.status(500).json({ message: 'Server error', error: error.message })
+      }
+    })
 
 module.exports = router
