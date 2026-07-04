@@ -89,7 +89,7 @@ export default function Login() {
 
             {/* Password with eye toggle */}
             <label style={{ display: 'block', fontSize: '14px', fontWeight: '500', color: '#212b32', marginBottom: '6px' }}>
-              Password
+          
             </label>
           <div style={{ position: 'relative', marginBottom: '20px', width: '100%' }}>
             <input
@@ -145,12 +145,24 @@ export default function Login() {
 
           </form>
 
+
+                {/* Password label with forgot link */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+          <label style={{ fontSize: '14px', fontWeight: '500', color: '#212b32' }}>
+          </label>
+          <Link to="/forgot-password" style={{ fontSize: '13px', color: '#005EB8', textDecoration: 'underline' }}>
+            Forgot password?
+          </Link>
+        </div>
+
           <hr style={{ border: 'none', borderTop: '1px solid #d8dde0', margin: '24px 0' }} />
 
           <p style={{ textAlign: 'center', fontSize: '14px', color: '#4c6272' }}>
             Don't have an account?{' '}
             <Link to="/register" style={{ color: '#005EB8', textDecoration: 'underline' }}>Register here</Link>
           </p>
+
+        
 
           {/* Test credentials */}
           {/* <div style={{ marginTop: '16px', padding: '12px', background: '#f0f4f5', borderRadius: '4px', borderLeft: '4px solid #005EB8' }}>
