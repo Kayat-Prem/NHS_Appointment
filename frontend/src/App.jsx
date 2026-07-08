@@ -1,37 +1,70 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import Landing from './pages/Landing'
 import ProtectedRoute from './components/ProtectedRoute'
+
+// Admin pages
 import AdminDashboard from './pages/admin/Dashboard'
 import ManageDoctors from './pages/admin/ManageDoctors'
 import AdminPatients from './pages/admin/Patients'
 import AdminAppointments from './pages/admin/Appointments'
-import Landing from './pages/Landing'
 
-const PatientDashboard = () => <div style={{ padding: '2rem' }}><h1>✅ Patient Dashboard — coming next!</h1></div>
-const GPDashboard = () => <div style={{ padding: '2rem' }}><h1>✅ GP Dashboard — coming next!</h1></div>
+// Patient pages
+import PatientDashboard from './pages/patient/Dashboard'
+import BookAppointment from './pages/patient/BookAppointment'
+import MyAppointments from './pages/patient/MyAppointments'
+import PatientProfile from './pages/patient/Profile'
+
+// GP pages
+import GPDashboard from './pages/gp/Dashboard'
+import ManageSlots from './pages/gp/ManageSlots'
+import GPSchedule from './pages/gp/Schedule'
+import GPPatients from './pages/gp/Patients'
+
+// Forgot & Reset Password
+import ForgotPassword from './pages/ForgotPassword'
+import ResetPassword from './pages/ResetPassword'
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
 
-        {/* Public routes */}
+        {/* Public */}
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* Patient routes */}
+        {/* Patient */}
         <Route path="/patient/dashboard" element={
           <ProtectedRoute allowedRoles={['patient']}><PatientDashboard /></ProtectedRoute>
         } />
+        <Route path="/patient/book" element={
+          <ProtectedRoute allowedRoles={['patient']}><BookAppointment /></ProtectedRoute>
+        } />
+        <Route path="/patient/appointments" element={
+          <ProtectedRoute allowedRoles={['patient']}><MyAppointments /></ProtectedRoute>
+        } />
+        <Route path="/patient/profile" element={
+          <ProtectedRoute allowedRoles={['patient']}><PatientProfile /></ProtectedRoute>
+        } />
 
-        {/* GP routes */}
+        {/* GP */}
         <Route path="/gp/dashboard" element={
           <ProtectedRoute allowedRoles={['gp']}><GPDashboard /></ProtectedRoute>
         } />
+        <Route path="/gp/slots" element={
+          <ProtectedRoute allowedRoles={['gp']}><ManageSlots /></ProtectedRoute>
+        } />
+        <Route path="/gp/schedule" element={
+          <ProtectedRoute allowedRoles={['gp']}><GPSchedule /></ProtectedRoute>
+        } />
+        <Route path="/gp/patients" element={
+          <ProtectedRoute allowedRoles={['gp']}><GPPatients /></ProtectedRoute>
+        } />
 
-        {/* Admin routes */}
+        {/* Admin */}
         <Route path="/admin/dashboard" element={
           <ProtectedRoute allowedRoles={['admin']}><AdminDashboard /></ProtectedRoute>
         } />
@@ -45,6 +78,9 @@ export default function App() {
           <ProtectedRoute allowedRoles={['admin']}><AdminAppointments /></ProtectedRoute>
         } />
 
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        
       </Routes>
     </BrowserRouter>
   )

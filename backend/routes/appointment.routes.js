@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const Appointment = require('../models/Appointment')
 const { protect, authorise } = require('../middleware/auth.middleware')
+const { sendBookingConfirmation } = require('../utils/sendEmail')
+const Slot = require('../models/Slot')
 
 // GET all appointments (admin only)
 router.get('/all', protect, authorise('admin'), async (req, res) => {
@@ -40,14 +42,14 @@ router.get('/gp', protect, authorise('gp'), async (req, res) => {
   }
 })
 
-// POST book appointment (patient)
+
+// Inside the POST /book route, after creating the appointment:
 router.post('/book', protect, authorise('patient'), async (req, res) => {
   try {
     const { doctorId, date, time, type } = req.body
     if (!doctorId || !date || !time) {
       return res.status(400).json({ message: 'Doctor, date and time are required' })
     }
-    // Check slot not already booked
     const existing = await Appointment.findOne({
       doctor: doctorId, date, time,
       status: { $ne: 'cancelled' }
@@ -65,6 +67,22 @@ router.post('/book', protect, authorise('patient'), async (req, res) => {
       { path: 'doctor', select: 'name specialisation' },
       { path: 'patient', select: 'name email' }
     ])
+
+    // Mark slot as booked
+    await Slot.findOneAndUpdate(
+      { doctor: doctorId, date, time },
+      { isBooked: true }
+    )
+
+    // Send confirmation email
+    await sendBookingConfirmation({
+      patientEmail: populated.patient.email,
+      patientName: populated.patient.name,
+      doctorName: populated.doctor.name,
+      date, time,
+      type: type || 'General Checkup'
+    })
+
     res.status(201).json({ message: 'Appointment booked successfully', appointment: populated })
   } catch (error) {
     res.status(500).json({ message: 'Server error', error: error.message })

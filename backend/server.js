@@ -6,6 +6,7 @@ const connectDB = require('./config/db')
 const authRoutes = require('./routes/auth.routes')
 const adminRoutes = require('./routes/admin.routes')
 const appointmentRoutes = require('./routes/appointment.routes')
+const slotRoutes = require('./routes/slot.routes')
 
 connectDB()
 
@@ -23,6 +24,7 @@ app.use(express.json())
 app.use('/api/auth', authRoutes)
 app.use('/api/admin', adminRoutes)
 app.use('/api/appointments', appointmentRoutes)
+app.use('/api/slots', slotRoutes)
 
 app.get('/', (req, res) => {
   res.json({ message: '✅ NHS API is running' })

@@ -33,10 +33,17 @@ const userSchema = new mongoose.Schema({
   phone: {
     type: String,
     default: ''
+  },
+  resetPasswordToken: {
+    type: String,
+    default: null
+  },
+  resetPasswordExpires: {
+    type: Date,
+    default: null
   }
 }, { timestamps: true })
 
-// Compare password on login
 userSchema.methods.matchPassword = async function(enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password)
 }
