@@ -73,10 +73,16 @@ export default function ResetPassword() {
   return (
     <div style={{ minHeight: '100vh', width: '100%', background: '#f0f4f5' }}>
 
-      {/* NHS Header */}
+      {/* NHS Header — clickable logo goes to landing page */}
       <div style={{ background: '#005EB8', padding: '0 24px', display: 'flex', alignItems: 'center', height: '52px' }}>
-        <span style={{ background: '#fff', color: '#005EB8', fontSize: '13px', fontWeight: '700', padding: '3px 8px', borderRadius: '4px', letterSpacing: '1px' }}>NHS</span>
-        <span style={{ color: '#fff', fontSize: '15px', fontWeight: '500', marginLeft: '12px' }}>GP Appointment Booking Service</span>
+        <div
+          onClick={() => navigate('/')}
+          style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }}
+          title="Go to home page"
+        >
+          <span style={{ background: '#fff', color: '#005EB8', fontSize: '13px', fontWeight: '700', padding: '3px 8px', borderRadius: '4px', letterSpacing: '1px' }}>NHS</span>
+          <span style={{ color: '#fff', fontSize: '15px', fontWeight: '500' }}>GP Appointment Booking Service</span>
+        </div>
       </div>
 
       <div style={{ minHeight: 'calc(100vh - 52px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 20px' }}>

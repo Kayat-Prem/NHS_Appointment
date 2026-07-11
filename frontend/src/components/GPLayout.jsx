@@ -26,7 +26,7 @@ export default function GPLayout({ children }) {
       {/* NHS Header */}
       <div style={{ background: '#005EB8', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '52px', flexShrink: 0 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <span style={{ background: '#fff', color: '#005EB8', fontSize: '13px', fontWeight: '700', padding: '3px 8px', borderRadius: '4px', letterSpacing: '1px' }}>NHS</span>
+          <span style={{ background: '#fff', color: '#005EB8', fontSize: '13px', fontWeight: '700', padding: '3px 8px', borderRadius: '4px', letterSpacing: '1px', cursor: 'default' }}>NHS</span>
           <span style={{ color: '#fff', fontSize: '15px', fontWeight: '500' }}>GP Appointment Booking Service</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>

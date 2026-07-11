@@ -88,10 +88,16 @@ export default function Register() {
   return (
     <div style={{ minHeight: '100vh', width: '100%', background: '#f0f4f5' }}>
 
-      {/* NHS Blue Header */}
-      <div style={{ background: '#005EB8', padding: '14px 24px', display: 'flex', alignItems: 'center', gap: '12px' }}>
-        <span style={{ background: '#fff', color: '#005EB8', fontSize: '13px', fontWeight: '700', padding: '3px 8px', borderRadius: '4px', letterSpacing: '1px' }}>NHS</span>
-        <span style={{ color: '#fff', fontSize: '15px', fontWeight: '500' }}>GP Appointment Booking Service</span>
+      {/* NHS Header — clickable logo goes to landing page */}
+      <div style={{ background: '#005EB8', padding: '0 24px', display: 'flex', alignItems: 'center', height: '52px' }}>
+        <div
+          onClick={() => navigate('/')}
+          style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }}
+          title="Go to home page"
+        >
+          <span style={{ background: '#fff', color: '#005EB8', fontSize: '13px', fontWeight: '700', padding: '3px 8px', borderRadius: '4px', letterSpacing: '1px' }}>NHS</span>
+          <span style={{ color: '#fff', fontSize: '15px', fontWeight: '500' }}>GP Appointment Booking Service</span>
+        </div>
       </div>
 
       {/* Centered Card */}
@@ -245,9 +251,9 @@ export default function Register() {
 
           <hr style={{ border: 'none', borderTop: '1px solid #d8dde0', margin: '24px 0' }} />
 
-          <p style={{ textAlign: 'center', fontSize: '14px', color: '#4c6272' }}>
+          <p style={{ textAlign: 'center', fontSize: '15px', color: '#4c6272' }}>
             Already have an account?{' '}
-            <Link to="/login" style={{ color: '#005EB8', textDecoration: 'underline' }}>Sign in here</Link>
+            <Link to="/login" style={{ color: '#005EB8', textDecoration: 'underline', fontSize: '14.5px' }}>Sign in here</Link>
           </p>
 
         </div>

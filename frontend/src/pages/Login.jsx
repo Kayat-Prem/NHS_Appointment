@@ -53,10 +53,16 @@ export default function Login() {
   return (
     <div style={{ minHeight: '100vh', width: '100%', background: '#f0f4f5' }}>
 
-      {/* NHS Blue Header */}
-      <div style={{ background: '#005EB8', padding: '14px 24px', display: 'flex', alignItems: 'center', gap: '12px' }}>
-        <span style={{ background: '#fff', color: '#005EB8', fontSize: '13px', fontWeight: '700', padding: '3px 8px', borderRadius: '4px', letterSpacing: '1px' }}>NHS</span>
-        <span style={{ color: '#fff', fontSize: '15px', fontWeight: '500' }}>GP Appointment Booking Service</span>
+      {/* NHS Header — clickable logo goes to landing page */}
+      <div style={{ background: '#005EB8', padding: '0 24px', display: 'flex', alignItems: 'center', height: '52px' }}>
+        <div
+          onClick={() => navigate('/')}
+          style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }}
+          title="Go to home page"
+        >
+          <span style={{ background: '#fff', color: '#005EB8', fontSize: '13px', fontWeight: '700', padding: '3px 8px', borderRadius: '4px', letterSpacing: '1px' }}>NHS</span>
+          <span style={{ color: '#fff', fontSize: '15px', fontWeight: '500' }}>GP Appointment Booking Service</span>
+        </div>
       </div>
 
       {/* Centered Card */}
@@ -74,59 +80,59 @@ export default function Login() {
               Email address
             </label>
             <input
-                type="email" name="email" value={formData.email}
-                onChange={handleChange} required
-                placeholder="e.g. john.smith@email.com"
-                style={{
-                  width: '100%', padding: '8px 12px',
-                  border: '2px solid #4c6272', borderRadius: '4px',
-                  fontSize: '16px', color: '#212b32',
-                  marginBottom: '16px', fontFamily: 'inherit',
-                  outline: 'none', background: '#ffffff',
-                  colorScheme: 'light', boxSizing: 'border-box'
-                }}
-            />
-
-            {/* Password with eye toggle */}
-            <label style={{ display: 'block', fontSize: '14px', fontWeight: '500', color: '#212b32', marginBottom: '6px' }}>
-          
-            </label>
-          <div style={{ position: 'relative', marginBottom: '20px', width: '100%' }}>
-            <input
-              type={showPassword ? 'text' : 'password'}
-              name="password" value={formData.password}
+              type="email" name="email" value={formData.email}
               onChange={handleChange} required
-              placeholder="Enter your password"
+              placeholder="e.g. john.smith@email.com"
               style={{
                 width: '100%', padding: '8px 12px',
                 border: '2px solid #4c6272', borderRadius: '4px',
                 fontSize: '16px', color: '#212b32',
-                fontFamily: 'inherit', outline: 'none',
-                background: '#ffffff', colorScheme: 'light',
-                paddingRight: '44px',
-                boxSizing: 'border-box'
+                marginBottom: '16px', fontFamily: 'inherit',
+                outline: 'none', background: '#ffffff',
+                colorScheme: 'light', boxSizing: 'border-box'
               }}
             />
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              style={{ position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: '#4c6272', padding: '0', display: 'flex', alignItems: 'center' }}
-              aria-label={showPassword ? 'Hide password' : 'Show password'}
-            >
-              {showPassword ? (
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
-                  <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
-                  <line x1="1" y1="1" x2="23" y2="23"/>
-                </svg>
-              ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                  <circle cx="12" cy="12" r="3"/>
-                </svg>
-              )}
-            </button>
-          </div>
+
+            {/* Password with eye toggle */}
+            <label style={{ display: 'block', fontSize: '14px', fontWeight: '500', color: '#212b32', marginBottom: '6px' }}>
+
+            </label>
+            <div style={{ position: 'relative', marginBottom: '20px', width: '100%' }}>
+              <input
+                type={showPassword ? 'text' : 'password'}
+                name="password" value={formData.password}
+                onChange={handleChange} required
+                placeholder="Enter your password"
+                style={{
+                  width: '100%', padding: '8px 12px',
+                  border: '2px solid #4c6272', borderRadius: '4px',
+                  fontSize: '16px', color: '#212b32',
+                  fontFamily: 'inherit', outline: 'none',
+                  background: '#ffffff', colorScheme: 'light',
+                  paddingRight: '44px',
+                  boxSizing: 'border-box'
+                }}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                style={{ position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: '#4c6272', padding: '0', display: 'flex', alignItems: 'center' }}
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+              >
+                {showPassword ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94" />
+                    <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19" />
+                    <line x1="1" y1="1" x2="23" y2="23" />
+                  </svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                )}
+              </button>
+            </div>
 
             <button
               type="submit" disabled={loading}
@@ -146,23 +152,23 @@ export default function Login() {
           </form>
 
 
-                {/* Password label with forgot link */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
-          <label style={{ fontSize: '14px', fontWeight: '500', color: '#212b32' }}>
-          </label>
-          <Link to="/forgot-password" style={{ fontSize: '13px', color: '#005EB8', textDecoration: 'underline' }}>
-            Forgot password?
-          </Link>
-        </div>
+          {/* Password label with forgot link */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+            <label style={{ fontSize: '14px', fontWeight: '500', color: '#212b32' }}>
+            </label>
+            <Link to="/forgot-password" style={{ fontSize: '14.5px', color: '#005EB8', textDecoration: 'underline', marginTop: '16px' }}>
+              Forgot password?
+            </Link>
+          </div>
 
           <hr style={{ border: 'none', borderTop: '1px solid #d8dde0', margin: '24px 0' }} />
 
-          <p style={{ textAlign: 'center', fontSize: '14px', color: '#4c6272' }}>
+          <p style={{ textAlign: 'center', fontSize: '16px', color: '#4c6272' }}>
             Don't have an account?{' '}
-            <Link to="/register" style={{ color: '#005EB8', textDecoration: 'underline' }}>Register here</Link>
+            <Link to="/register" style={{ color: '#005EB8', textDecoration: 'underline', fontSize: '14.5px' }}>Register here</Link>
           </p>
 
-        
+
 
           {/* Test credentials */}
           {/* <div style={{ marginTop: '16px', padding: '12px', background: '#f0f4f5', borderRadius: '4px', borderLeft: '4px solid #005EB8' }}>

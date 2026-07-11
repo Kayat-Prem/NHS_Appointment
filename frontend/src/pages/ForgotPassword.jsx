@@ -1,13 +1,14 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import API from '../utils/api'
 import toast from 'react-hot-toast'
+import { useNavigate, Link } from 'react-router-dom'
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
   const [sent, setSent] = useState(false)
   const [resetLink, setResetLink] = useState('')
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -40,40 +41,17 @@ export default function ForgotPassword() {
         background: '#f0f4f5'
       }}
     >
-      {/* NHS Header */}
-      <div
-        style={{
-          background: '#005EB8',
-          padding: '0 24px',
-          display: 'flex',
-          alignItems: 'center',
-          height: '52px'
-        }}
-      >
-        <span
-          style={{
-            background: '#fff',
-            color: '#005EB8',
-            fontSize: '13px',
-            fontWeight: '700',
-            padding: '3px 8px',
-            borderRadius: '4px',
-            letterSpacing: '1px'
-          }}
+     
+      {/* NHS Header — clickable logo goes to landing page */}
+      <div style={{ background: '#005EB8', padding: '0 24px', display: 'flex', alignItems: 'center', height: '52px' }}>
+        <div
+          onClick={() => navigate('/')}
+          style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }}
+          title="Go to home page"
         >
-          NHS
-        </span>
-
-        <span
-          style={{
-            color: '#fff',
-            fontSize: '15px',
-            fontWeight: '500',
-            marginLeft: '12px'
-          }}
-        >
-          GP Appointment Booking Service
-        </span>
+          <span style={{ background: '#fff', color: '#005EB8', fontSize: '13px', fontWeight: '700', padding: '3px 8px', borderRadius: '4px', letterSpacing: '1px' }}>NHS</span>
+          <span style={{ color: '#fff', fontSize: '15px', fontWeight: '500' }}>GP Appointment Booking Service</span>
+        </div>
       </div>
 
       <div
@@ -110,7 +88,7 @@ export default function ForgotPassword() {
 
               <p
                 style={{
-                  fontSize: '14px',
+                  fontSize: '14.5px',
                   color: '#4c6272',
                   marginBottom: '24px'
                 }}
@@ -185,7 +163,7 @@ export default function ForgotPassword() {
               <p
                 style={{
                   textAlign: 'center',
-                  fontSize: '14px',
+                  fontSize: '15px',
                   color: '#4c6272'
                 }}
               >
@@ -194,7 +172,8 @@ export default function ForgotPassword() {
                   to="/login"
                   style={{
                     color: '#005EB8',
-                    textDecoration: 'underline'
+                    textDecoration: 'underline',
+                    fontSize: '15px'
                   }}
                 >
                   Sign in here
@@ -298,7 +277,8 @@ export default function ForgotPassword() {
                   border: '1px solid #d8dde0',
                   borderRadius: '4px',
                   cursor: 'pointer',
-                  marginBottom: '10px'
+                  marginBottom: '10px',
+                  fontSize: '15px'
                 }}
               >
                 Try a different email
@@ -315,7 +295,8 @@ export default function ForgotPassword() {
                   to="/login"
                   style={{
                     color: '#005EB8',
-                    textDecoration: 'underline'
+                    textDecoration: 'underline',
+                    fontSize: '15px'
                   }}
                 >
                   Back to sign in
