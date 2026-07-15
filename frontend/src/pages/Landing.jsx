@@ -78,15 +78,17 @@ export default function Landing() {
       label: 'Health Info', dropdown: [
         { label: 'NHS services',   onClick: () => {} },
         { label: 'GP services',    onClick: () => {} },
-        { label: 'Privacy & data', onClick: () => {} },
+        { label: 'When to see a GP', onClick: () => {} },
         { label: 'Accessibility',  onClick: () => {} },
       ]
     },
     {
-      label: 'About', dropdown: [
-        { label: 'About this service', onClick: () => {} },
-        { label: 'Contact us',         onClick: () => {} },
-        { label: 'NHS digital policy', onClick: () => {} },
+      label: 'About',
+      dropdown: [
+        { label: 'About this service', onClick: () => navigate('/about') },
+        { label: 'Contact us',         onClick: () => navigate('/contact') },
+        { label: 'NHS digital policy', onClick: () => navigate('/nhs-policy') },
+        {label: 'Privacy policy', onClick: () => navigate('/privacy') }
       ]
     },
     { label: 'Register Online', onClick: () => navigate('/register'), highlight: true, dropdown: null },
@@ -355,8 +357,16 @@ export default function Landing() {
           {/* Info column */}
           <div>
             <div style={{ fontSize: '15px', fontWeight: '700', color: '#fff', marginBottom: '16px', paddingBottom: '10px', borderBottom: '1px solid rgba(255,255,255,0.15)' }}>Information</div>
-            {[
-              'About this service',
+            {/* {[
+              { label: 'Privacy policy', onClick: () => navigate('/register') },
+              { label: 'Cookie policy',  onClick: () => navigate('/register') },
+              { label: 'Accessibility statement',onClick: () => navigate('/login') },
+              { label: 'Terms of use',  onClick: () => navigate('/login') },
+              { label: 'NHS digital policy',      onClick: () => navigate('/login') },
+              { label: 'Freedom of information',  onClick: () => navigate('/login') },
+            ].map(item => */}
+            // {[
+              'About this service', 
               'Privacy policy',
               'Cookie policy',
               'Accessibility statement',
@@ -396,6 +406,14 @@ export default function Landing() {
             ))}
           </div>
         </div>
+        {/* // In the footer Information column, add this to the list: */}
+          {['Privacy', 'Cookies', 'Accessibility', 'Sitemap'].map(link => (
+              <span key={link}
+                onClick={() => link === 'Privacy' ? navigate('/privacy') : {}}
+                style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)', cursor: 'pointer' }}>
+                {link}
+              </span>
+            ))}
       </div>
 
     </div>

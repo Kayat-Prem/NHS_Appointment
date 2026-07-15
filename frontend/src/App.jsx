@@ -4,6 +4,12 @@ import Register from './pages/Register'
 import Landing from './pages/Landing'
 import ProtectedRoute from './components/ProtectedRoute'
 
+// Landing Pages
+import AboutService from './LandingPages/AboutService'
+import ContactUs from './LandingPages/ContactUs'
+import NHSpolicy from './LandingPages/NHSpolicy'
+import PrivacyPolicy from './LandingPages/PrivacyPolicy'
+
 // Admin pages
 import AdminDashboard from './pages/admin/Dashboard'
 import ManageDoctors from './pages/admin/ManageDoctors'
@@ -35,6 +41,12 @@ export default function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+
+        {/* Landing Pages */}
+        <Route path="/about" element={<AboutService />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/nhs-policy" element={<NHSpolicy />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
 
         {/* Patient */}
         <Route path="/patient/dashboard" element={
