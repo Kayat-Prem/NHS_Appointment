@@ -9,6 +9,14 @@ import AboutService from './LandingPages/AboutService'
 import ContactUs from './LandingPages/ContactUs'
 import NHSpolicy from './LandingPages/NHSpolicy'
 import PrivacyPolicy from './LandingPages/PrivacyPolicy'
+import TermsOfUse from './LandingPages/TermsOfUse'
+import CookiePolicy from './LandingPages/CookiePolicy'
+import NhsService from './LandingPages/NhsService'
+import WhenToSeeGP from './Landingpages/WhenToSeeGP'
+import CommonConditions from './LandingPages/CommonConditions'
+import HealthyLiving from './LandingPages/HealthyLiving'
+import MentalHealth from './LandingPages/MentalHealth'
+import Prescriptions from './LandingPages/Prescriptions'
 
 // Admin pages
 import AdminDashboard from './pages/admin/Dashboard'
@@ -47,6 +55,14 @@ export default function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/nhs-policy" element={<NHSpolicy />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsOfUse />} />
+        <Route path="/cookie" element={<CookiePolicy />} />
+        <Route path="/NhsService" element={<NhsService />} />
+        <Route path="/when-to-see-gp"     element={<WhenToSeeGP />} />
+        <Route path="/common-conditions"  element={<CommonConditions />} />
+        <Route path="/mental-health"  element={<MentalHealth />} />
+        <Route path="/healthy-living"  element={<HealthyLiving />} />
+        <Route path="/precriptions"  element={<Prescriptions />} />
 
         {/* Patient */}
         <Route path="/patient/dashboard" element={
