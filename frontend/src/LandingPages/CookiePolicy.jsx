@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import cookiesImage from '../assets/cookies.png'
+import cookiesImage from '../assets/Cookies.png'
 
 export default function CookiePolicy() {
   const navigate = useNavigate()
