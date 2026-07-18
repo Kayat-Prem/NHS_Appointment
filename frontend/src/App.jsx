@@ -12,7 +12,7 @@ import PrivacyPolicy from './LandingPages/PrivacyPolicy'
 import TermsOfUse from './LandingPages/TermsOfUse'
 import CookiePolicy from './LandingPages/CookiePolicy'
 import NhsService from './LandingPages/NhsService'
-import WhenToSeeGP from './LandingPages/WhenToSeeGp'
+import WhenToSeeGp from './LandingPages/WhenToSeeGp'
 import CommonConditions from './LandingPages/CommonConditions'
 import HealthyLiving from './LandingPages/HealthyLiving'
 import MentalHealth from './LandingPages/MentalHealth'
@@ -58,7 +58,7 @@ export default function App() {
         <Route path="/terms" element={<TermsOfUse />} />
         <Route path="/cookie" element={<CookiePolicy />} />
         <Route path="/NhsService" element={<NhsService />} />
-        <Route path="/when-to-see-gp"     element={<WhenToSeeGP />} />
+        <Route path="/when-to-see-gp"     element={<WhenToSeeGp />} />
         <Route path="/common-conditions"  element={<CommonConditions />} />
         <Route path="/mental-health"  element={<MentalHealth />} />
         <Route path="/healthy-living"  element={<HealthyLiving />} />

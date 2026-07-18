@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import seeGpImage from '../assets/SeeGp.jpg'
 
-export default function WhenToSeeGP() {
+export default function WhenToSeeGp() {
     const navigate = useNavigate()
 
     const situations = [
